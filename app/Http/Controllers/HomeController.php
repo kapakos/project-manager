@@ -17,8 +17,6 @@ class HomeController extends Controller {
 
 	/**
 	 * Create a new controller instance.
-	 *
-	 * @return void
 	 */
 	public function __construct()
 	{
@@ -32,7 +30,12 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-        $projects = Project::all();
+        $complete = Project::all()->toArray();
+
+        $projects = array_reduce($complete, function(&$result, $item){
+           $result[] = $item['name'];
+            return $result;
+        });
 		return view('home', compact('projects'));
 	}
 
