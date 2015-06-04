@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Project;
-
+use App\Client;
 class HomeController extends Controller {
 
 	/*
@@ -30,12 +30,7 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-        $complete = Project::all()->toArray();
-
-        $projects = array_reduce($complete, function(&$result, $item){
-           $result[] = $item['name'];
-            return $result;
-        });
+        $projects = Project::all();
 		return view('home', compact('projects'));
 	}
 
