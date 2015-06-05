@@ -7,25 +7,27 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Projects</div>
 
-                <div class="panel-body">
-                    @if ( !$projects->count() )
+                <div class="panel-body" data-module="dashboard">
+                    @if ( !$clients->count() )
                         There are no projects at the moment
                     @else
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover table-bordered">
-                                @foreach($projects as $project)
-                                    {!! Form::open(array('class' => 'form-inline', 'method' => 'DELETE', 'route' => array('clients.destroy', $project->client->slug))) !!}
+                            <table class="table table-hover table-bordered">
+                                @foreach($clients as $client)
                                     <tr>
-                                        <td class="col-xs-10">
-                                            <a href="{{ route('clients.projects.show', [$project->client->slug, $project->slug ]) }}">{{ $project->name }}</a> -
-                                            {{ $project->client->name }}
-                                        </td>
-                                        <td class="col-xs-2 text-center">
-                                            {!! link_to_route('clients.projects.edit', 'edit', [$project->client->slug, $project->slug]) !!}
-                                            {!! Form::submit('delete') !!}
-                                        </td>
+                                        <th>
+                                            <a href="{{ route('clients.show', $client->slug) }}">{{ $client->name }}</a>
+                                        </th>
                                     </tr>
-                                    {!! Form::close() !!}
+                                    @if($client->projects->count())
+                                        @foreach($client->projects as $project)
+                                            <tr>
+                                                <td class="col-xs-12">
+                                                    <a href="{{ route('clients.projects.show', [$client->slug, $project->slug ]) }}">- {{ $project->name }}</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 @endforeach
                             </table>
                         </div>

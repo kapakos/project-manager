@@ -98,7 +98,7 @@ class ClientsController extends Controller {
 	{
 		$client->delete();
 
-        return Redirect::route('clients.index')->with('message', 'Project deleted.');
+        return Redirect::route('clients.index')->with('message', 'Client deleted.');
 	}
 
 }

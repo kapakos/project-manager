@@ -30,8 +30,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-        $projects = Project::all();
-		return view('home', compact('projects'));
+        $clients = Client::all();
+		return view('home', compact('clients'));
 	}
 
 }

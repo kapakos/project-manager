@@ -5789,6 +5789,9 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+[data-module="dashboard"] tr > td > a {
+  padding-left: 20px; }
+
 body, label, .checkbox label {
   font-weight: 300; }
 
