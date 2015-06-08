@@ -1,7 +1,8 @@
 <?php namespace App\Http\Controllers;
 
-use App\Project;
 use App\Client;
+use App\Project;
+
 class HomeController extends Controller {
 
 	/*
@@ -30,8 +31,11 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
+
         $clients = Client::all();
-		return view('home', compact('clients'));
+        $projects = Project::all();
+
+		return view('home', compact('clients', 'projects'));
 	}
 
 }

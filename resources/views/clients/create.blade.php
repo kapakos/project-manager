@@ -22,7 +22,7 @@
                             </div>
                         @endif
                         {!! Form::model(new App\Client, ['route' => ['clients.store']]) !!}
-                            @include('clients/partials/_form', ['submit_text' => 'Create Client'])
+                            @include('clients/partials/_form', ['submit_text' => 'Create Client', 'client' => new App\Client])
                         {!! Form::close() !!}
                     </div>
                 </div>

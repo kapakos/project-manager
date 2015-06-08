@@ -4,7 +4,7 @@
             {!! Form::label('name', 'Client Name:') !!}
         </div>
         <div class="col-xs-3">
-            {!! Form::text('name', '', ['class' => 'form-control']) !!}
+            {!! Form::text('name', $client->name, ['class' => 'form-control']) !!}
         </div>
     </div>
 </div>
@@ -14,7 +14,7 @@
             {!! Form::label('slug', 'Slug:') !!}
         </div>
         <div class="col-xs-3">
-            {!! Form::text('slug', '', ['class' => 'form-control']) !!}
+            {!! Form::text('slug', $client->slug, ['class' => 'form-control']) !!}
         </div>
     </div>
 </div>

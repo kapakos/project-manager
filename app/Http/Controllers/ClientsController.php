@@ -44,7 +44,7 @@ class ClientsController extends Controller {
 	 * @param CreateClientRequest $request
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateClientRequest $request)
 	{
         $input = Input::all();
         Client::create($input);
@@ -78,9 +78,10 @@ class ClientsController extends Controller {
 	 * Update the specified resource in storage.
 	 *
 	 * @param  Client $client
+	 * @param  CreateClientRequest $request
 	 * @return Response
 	 */
-	public function update(Client $client)
+	public function update(Client $client, CreateClientRequest $request)
 	{
         $input = array_except(Input::all(), '_method');
         $client->update($input);

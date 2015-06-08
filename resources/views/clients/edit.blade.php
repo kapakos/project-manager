@@ -22,7 +22,7 @@
                             </div>
                         @endif
                         {!! Form::model($client, ['method' => 'PATCH', 'route' => ['clients.update', $client->slug]]) !!}
-                            @include('clients/partials/_form', ['submit_text' => 'Edit Client'])
+                            @include('clients/partials/_form', ['submit_text' => 'Edit Client', 'client' => $client])
                         {!! Form::close() !!}
                     </div>
                 </div>
